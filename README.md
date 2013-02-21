@@ -14,6 +14,7 @@ cd
 git clone https://github.com/spillevink/CRAPtion.git
 echo export PATH=$path:~/CRAPtion
 ./CRAPtion/craption
+vim .craptionrc
 ```
 Dropbox login
 ```
