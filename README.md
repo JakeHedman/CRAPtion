@@ -38,7 +38,7 @@ python CRAPtion/settings.py clear-conf
 Bind hotkey
 * Open automator
 * Create service
-* Select ärun shell script'
+* Select run shell script
 * Type python /path/to/craption
 * Save your service/workflow
 * Open System Pref -> Keyboard settings -> Keyboard shortcuts
