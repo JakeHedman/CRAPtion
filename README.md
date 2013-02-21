@@ -1,4 +1,8 @@
 CRAPtion
 ========
 
-Screenshot uploader for OS X
+Requirements
+------------
+### Python packages
+* configobj
+* dropbox
