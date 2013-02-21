@@ -1,6 +1,5 @@
 #coding: utf-8
 import dropbox
-import settings #TODO
 
 def upload(local_path, filename, dropconf):
 	sess = dropbox.session.DropboxSession(
