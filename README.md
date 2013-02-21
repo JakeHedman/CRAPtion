@@ -12,7 +12,7 @@ Config
 ```
 cd
 git clone https://github.com/spillevink/CRAPtion.git
-echo export PATH=$path:~/CRAPtion
+echo export PATH=$path:~/CRAPtion >> .bash_profile
 ./CRAPtion/craption
 vim .craptionrc
 ```
@@ -24,3 +24,9 @@ Restore default settings
 ```
 python CRAPtion/settings.py clear-conf
 ```
+Todo:
+-----
+ * Linux
+ * FTP
+ * Libnotify/Growl
+ * Your mom
