@@ -1,6 +1,16 @@
-CRAPtion
-========
-
+```
+# # # # # # # # # # # # # # # # # # # # # # # # # # #
+#    _____ ______  ___  ______ _   _                #
+#   /  __ \| ___ \/ _ \ | ___ \ | (_)               #
+#   | /  \/| |_/ / /_\ \| |_/ / |_ _  ___  _ __     #
+#   | |    |    /|  _  ||  __/| __| |/ _ \| '_ \    #
+#   | \__/\| |\ \| | | || |   | |_| | (_) | | | |   #
+#    \____/\_| \_\_| |_/\_|    \__|_|\___/|_| |_|   #
+#                                                   #
+#             Not as crappy as tinygrab             #
+#                                                   #
+# # # # # # # # # # # # # # # # # # # # # # # # # # #
+```
 Requirements
 ------------
 Python packages
@@ -25,6 +35,15 @@ Restore default settings
 ```
 python CRAPtion/settings.py clear-conf
 ```
+Bind hotkey
+* Open automator
+* Create service
+* Select ärun shell script'
+* Type python /path/to/craption
+* Save your service/workflow
+* Open System Pref -> Keyboard settings -> Keyboard shortcuts
+* Find your service in Services
+
 Todo:
 -----
  * Linux
