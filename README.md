@@ -13,11 +13,14 @@
 ```
 Requirements
 ------------
-Python packages
-```
-configobj
-dropbox
-```
+* OS X
+* Python 2.x
+
+### Python packages
+
+* configobj
+* dropbox
+
 Config
 ------
 ```
