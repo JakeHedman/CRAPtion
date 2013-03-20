@@ -44,4 +44,4 @@ if conf['file']['keep']:
 	localfile.move(local_image, conf['file']['dir'], filename)
 else:
 	os.unlink(local_image)
-subprocess.call(["afplay","/System/Library/Sounds/Glass.aiff"])
+subprocess.Popen(["afplay","/System/Library/Sounds/Glass.aiff"])

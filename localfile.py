@@ -13,7 +13,7 @@ def mkfilename(fileconf):
 		chars = string.letters + string.digits
 		filename = filename.replace(
 				match.group(0),
-				"".join([random.choice(chars) for _ in range(int(match.group(1)))])
+				"".join([random.choice(chars) for _ in range(int(match.group(1)))]), 1
 			)
 	
 	filename = filename.replace('{u}',	str(int(now)))

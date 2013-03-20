@@ -1,16 +1,3 @@
-```
-# # # # # # # # # # # # # # # # # # # # # # # # # # #
-#    _____ ______  ___  ______ _   _                #
-#   /  __ \| ___ \/ _ \ | ___ \ | (_)               #
-#   | /  \/| |_/ / /_\ \| |_/ / |_ _  ___  _ __     #
-#   | |    |    /|  _  ||  __/| __| |/ _ \| '_ \    #
-#   | \__/\| |\ \| | | || |   | |_| | (_) | | | |   #
-#    \____/\_| \_\_| |_/\_|    \__|_|\___/|_| |_|   #
-#                                                   #
-#             Not as crappy as tinygrab             #
-#                                                   #
-# # # # # # # # # # # # # # # # # # # # # # # # # # #
-```
 Requirements
 ------------
 * OS X
@@ -26,7 +13,7 @@ Config
 ```
 cd
 git clone https://github.com/spillevink/CRAPtion.git
-echo export PATH=$path:~/CRAPtion >> .bash_profile
+echo export PATH=$PATH:~/CRAPtion >> .bash_profile
 ./CRAPtion/craption
 vim .craptionrc
 ```
@@ -52,4 +39,3 @@ Todo:
  * Linux
  * FTP
  * Libnotify/Growl
- * Your mom
