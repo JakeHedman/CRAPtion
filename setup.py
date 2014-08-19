@@ -1,10 +1,17 @@
 from setuptools import setup
+with readme as open('README.md', 'r'):
+    README_TEXT = readme.read()
 
 setup(
     version='1.0.1',
     name = "craption",
     packages = ['craption'],
-    description='Screenshot uploader for OS X',
+    description='Simple screenshot uploader',
+    author='Jakob Hedman',
+    author_email='jakob@hedman.email',
+    maintainer='Jakob Hedman',
+    maintainer_email='jakob@hedman.email',
+    license='GNU GPLv3',
     url='https://github.com/spillevink/CRAPtion',
     package_dir = {'craption':'craption'},
     package_data = {
@@ -22,4 +29,5 @@ setup(
         'opster',
         'configobj',
     ],
+    long_description = README_TEXT,
 )
