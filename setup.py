@@ -4,6 +4,8 @@ setup(
     version='1.0',
     name = "craption",
     packages = ['craption'],
+    description='Screenshot uploader for OS X',
+    url='https://github.com/spillevink/CRAPtion',
     package_dir = {'craption':'craption'},
     package_data = {
         'cod': ['glass.mp3'],
