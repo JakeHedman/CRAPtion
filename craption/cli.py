@@ -33,7 +33,11 @@ def main(clear_conf=('c', False, 'Rewrite example config and noise'),
     utils.set_clipboard(url)
     conf = settings.get_conf()
     if conf['file']['keep']:
-        dest = os.path.expanduser(os.path.join(conf['file']['dir'], filename))
+        os.mkdir()
+        dest_dir = os.path.expanduser(conf['file']['dir'], filename)
+        if not os.path.exists:
+            os.mkdir(dest_dir)
+        dest = os.path.join(dest_dir, filename)
         shutil.move(local_image, dest)
     else:
         os.unlink(local_image)
