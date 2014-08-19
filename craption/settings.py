@@ -1,12 +1,12 @@
 #coding: utf-8
+
 from configobj import ConfigObj
-import dropbox
+from craption import utils
 import os
-import sys
-import time
 
 home = os.getenv('USERPROFILE') or os.getenv('HOME')
 confpath = "%s/%s" % (home, '.craptionrc')
+noise_path = "%s/%s" % (home, '.craption_noise.wav')
 
 def write_template():
 	conf = ConfigObj(
@@ -20,7 +20,7 @@ def write_template():
 			'name': 'CRAPtion_{r5}_{u}_{d}',
 			'dir': '~/craptions',
 			'keep': True,
-			'datetime_format': '%Y-%M-%d',
+			'datetime_format': '%Y-%m-%d',
 		}
 
 	conf['file'].comments['name'] = [
@@ -71,39 +71,31 @@ def write_template():
 	conf.write()
 
 def get_conf():
-	assert os.path.exists(confpath)
-	return ConfigObj(confpath)
+    if os.path.exists(confpath):
+        return ConfigObj(confpath)
+    else:
+        utils.install()
+        print("Wrote example config to {0}".format(confpath))
 
-def dropbox_login():
-	url = "https://api.dropbox.com/1/oauth/request_token"
-	conf = get_conf()
-	if not conf['upload']['dropbox']['app']['key'] or \
-	not conf['upload']['dropbox']['app']['secret']:
-		conf['upload']['dropbox']['app']['key'] = raw_input("App key? ")
-		conf['upload']['dropbox']['app']['secret'] = raw_input("Secret app key? ")
-	
-	sess = dropbox.session.DropboxSession(
-			conf['upload']['dropbox']['app']['key'],
-			conf['upload']['dropbox']['app']['secret'],
-			'app_folder'
-		)
-
-	request_token = sess.obtain_request_token()
-	print sess.build_authorize_url(request_token)
-	raw_input("Press any key to continue...")
-	token = sess.obtain_access_token(request_token)
-	conf['upload']['dropbox']['token']['key'] = token.key
-	conf['upload']['dropbox']['token']['secret'] = token.secret
-	conf.write()
-
-if __name__ == "__main__":
-	if sys.argv[1] == "dropbox":
-		dropbox_login()
-
-	if sys.argv[1] == "clear-conf":
-		write_template()
-
-if not os.path.exists(confpath):
-	write_template()
-	print "Wrote example config to %s" % confpath
-	sys.exit()
+#def dropbox_login():
+#        import dropbox
+#	url = "https://api.dropbox.com/1/oauth/request_token"
+#	conf = get_conf()
+#	if not conf['upload']['dropbox']['app']['key'] or \
+#	not conf['upload']['dropbox']['app']['secret']:
+#		conf['upload']['dropbox']['app']['key'] = raw_input("App key? ")
+#		conf['upload']['dropbox']['app']['secret'] = raw_input("Secret app key? ")
+#	
+#	sess = dropbox.session.DropboxSession(
+#			conf['upload']['dropbox']['app']['key'],
+#			conf['upload']['dropbox']['app']['secret'],
+#			'app_folder'
+#		)
+#
+#	request_token = sess.obtain_request_token()
+#	print sess.build_authorize_url(request_token)
+#	raw_input("Press any key to continue...")
+#	token = sess.obtain_access_token(request_token)
+#	conf['upload']['dropbox']['token']['key'] = token.key
+#	conf['upload']['dropbox']['token']['secret'] = token.secret
+#	conf.write()
