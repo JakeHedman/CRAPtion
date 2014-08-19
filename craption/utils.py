@@ -7,7 +7,6 @@ import pkg_resources
 import pyperclip
 import random
 import re
-import string
 import subprocess
 import sys
 import tempfile
@@ -29,7 +28,7 @@ def get_filename():
     filename = conf['file']['name']
     now = time.time()
     for match in re.finditer("{r(\d+)}", filename):
-        chars = string.letters + string.digits
+        chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
         random_string = "".join([random.choice(chars) for _ in range(int(match.group(1)))])
         filename = filename.replace(match.group(0), random_string)
 
