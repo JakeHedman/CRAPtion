@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    version='1.0.3',
+    version='1.0.4',
     name = "craption",
     packages = ['craption'],
     description='Simple screenshot uploader',
