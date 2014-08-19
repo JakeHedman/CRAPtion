@@ -13,7 +13,7 @@ setup(
     url='https://github.com/spillevink/CRAPtion',
     package_dir = {'craption':'craption'},
     package_data = {
-        'cod': ['glass.mp3'],
+        'cod': ['noise.wav'],
     },
     entry_points = {
         'console_scripts': [
