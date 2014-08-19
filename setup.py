@@ -3,7 +3,7 @@ with readme as open('README.md', 'r'):
     README_TEXT = readme.read()
 
 setup(
-    version='1.0.1',
+    version='1.0.2',
     name = "craption",
     packages = ['craption'],
     description='Simple screenshot uploader',
