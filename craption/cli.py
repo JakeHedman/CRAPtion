@@ -33,7 +33,6 @@ def main(clear_conf=('c', False, 'Rewrite example config and noise'),
     utils.set_clipboard(url)
     conf = settings.get_conf()
     if conf['file']['keep']:
-        os.mkdir()
         dest_dir = os.path.expanduser(conf['file']['dir'], filename)
         if not os.path.exists:
             os.mkdir(dest_dir)
