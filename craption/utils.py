@@ -17,7 +17,7 @@ def set_clipboard(data):
 
 def screenshot():
     path = tempfile.mktemp('.png')
-    if sys.platform == 'linux2' or sys.platform == 'linux':
+    if sys.platform.startswith('linux'):
         run(['scrot', '-s', path])
     else:
         run(['screencapture', '-ix', path])
@@ -38,7 +38,7 @@ def get_filename():
     return filename + ".png"
 
 def play_noise():
-    if sys.platform == 'linux2':
+    if sys.platform.startswith('linux'):
         run(["mplayer", craption.settings.noise_path])
     else:
         run(["afplay", craption.settings.noise_path])
