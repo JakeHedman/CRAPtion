@@ -51,7 +51,7 @@ Bind hotkey in OS X
 - Open automator
 - Create service
 - Select run shell script
-- Type: craption
+- Type ``craption``
 - Save your service/workflow
 - Open System Pref -> Keyboard settings -> Keyboard shortcuts
 - Find your service in Services
