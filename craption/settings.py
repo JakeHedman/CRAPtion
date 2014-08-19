@@ -3,6 +3,7 @@
 from configobj import ConfigObj
 from craption import utils
 import os
+import webbrowser
 
 home = os.getenv('USERPROFILE') or os.getenv('HOME')
 confpath = "%s/%s" % (home, '.craptionrc')
@@ -42,15 +43,12 @@ def write_template():
 			'scp': {
 					'user': 'myuser',
 					'host': 'example.com',
-					'path': '/srv/http/something/whatever',
-					'url': 'http://example.com/{f}'
+					'path': '/srv/http/screenshots/',
+					'url': 'http://example.com/screenshots&{f}'
 				},
 			'dropbox': {
+					'token': '',
 					'app': {
-							'key': '',
-							'secret': '',
-						},
-					'token': {
 							'key': '',
 							'secret': '',
 						},
@@ -59,12 +57,12 @@ def write_template():
 
 	conf['upload'].comments['scp'] = [
 			'SSH/SFTP/SCP',
-			'http://dwight.schrute.org/ssh-login-without-password-using-ssh-keys',
 		]
 	conf['upload'].comments['dropbox'] = [
-			'Run settings.py dropbox to log in, get keys from',
-			'https://www.dropbox.com/developers/apps'
-		]
+                '1: Set app key and secret from https://www.dropbox.com/developers/apps'
+                '2: Run craption -d'
+            ]
+	conf['upload']['dropbox'].comments['token'] = ['Set by craption -d']
 	conf['upload'].comments['upload'] = ['Upload screenshot?']
 	conf['upload'].comments['to'] = ['imgur/scp/dropbox etc']
 
@@ -77,25 +75,23 @@ def get_conf():
         utils.install()
         print("Wrote example config to {0}".format(confpath))
 
-#def dropbox_login():
-#        import dropbox
-#	url = "https://api.dropbox.com/1/oauth/request_token"
-#	conf = get_conf()
-#	if not conf['upload']['dropbox']['app']['key'] or \
-#	not conf['upload']['dropbox']['app']['secret']:
-#		conf['upload']['dropbox']['app']['key'] = raw_input("App key? ")
-#		conf['upload']['dropbox']['app']['secret'] = raw_input("Secret app key? ")
-#	
-#	sess = dropbox.session.DropboxSession(
-#			conf['upload']['dropbox']['app']['key'],
-#			conf['upload']['dropbox']['app']['secret'],
-#			'app_folder'
-#		)
-#
-#	request_token = sess.obtain_request_token()
-#	print sess.build_authorize_url(request_token)
-#	raw_input("Press any key to continue...")
-#	token = sess.obtain_access_token(request_token)
-#	conf['upload']['dropbox']['token']['key'] = token.key
-#	conf['upload']['dropbox']['token']['secret'] = token.secret
-#	conf.write()
+def dropbox_login():
+    import dropbox
+    conf = get_conf()
+    if not conf['upload']['dropbox']['app']['key'] or \
+    not conf['upload']['dropbox']['app']['secret']:
+	    conf['upload']['dropbox']['app']['key'] = raw_input("App key? ")
+	    conf['upload']['dropbox']['app']['secret'] = raw_input("Secret app key? ")
+    
+    flow = dropbox.client.DropboxOAuth2FlowNoRedirect(
+                conf['upload']['dropbox']['app']['key'],
+                conf['upload']['dropbox']['app']['secret'],
+	    )
+    authorize_url = flow.start()
+    print(authorize_url)
+    webbrowser.open(authorize_url)
+    code = raw_input("Authorization code: ").strip()
+    access_token, user_id = flow.finish(code)
+
+    conf['upload']['dropbox']['token'] = access_token
+    conf.write()

@@ -19,16 +19,8 @@ def upload(path, filename):
 
 
 def dropbox(local_path, filename, dropconf):
-    sess = dropbox_lib.session.DropboxSession(
-        dropconf['app']['key'],
-        dropconf['app']['secret'],
-        "app_folder"
-    )
-    sess.set_token(
-        dropconf['token']['key'],
-        dropconf['token']['secret']
-    )
-    client = dropbox_lib.client.DropboxClient(sess)
+    print (dropconf)
+    client = dropbox_lib.client.DropboxClient(dropconf['token'])
     uploaded = client.put_file("/" + filename, open(local_path))
     return client.share(uploaded['path'])['url']
 
