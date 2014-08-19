@@ -36,6 +36,7 @@ def write_template():
 
 	conf['upload'] = {
 			'upload': True,
+                        'noise': True,
 			'to': 'imgur',
 			'imgur': {
 					'api-key': 'd4ce1fd7b955cddf8a9a179f3c9bee47',
@@ -59,12 +60,15 @@ def write_template():
 			'SSH/SFTP/SCP',
 		]
 	conf['upload'].comments['dropbox'] = [
-                '1: Set app key and secret from https://www.dropbox.com/developers/apps'
+                '1: Set app key and secret from https://www.dropbox.com/developers/apps',
                 '2: Run craption -d'
             ]
 	conf['upload']['dropbox'].comments['token'] = ['Set by craption -d']
 	conf['upload'].comments['upload'] = ['Upload screenshot?']
 	conf['upload'].comments['to'] = ['imgur/scp/dropbox etc']
+	conf['upload'].comments['noise'] = ['Play a sound (~/.cration_noise.wav) after',
+                                            'upload (requires mplayer on linux)',
+                                           ]
 
 	conf.write()
 

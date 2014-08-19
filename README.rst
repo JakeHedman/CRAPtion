@@ -36,6 +36,7 @@ Linux
 *****
 - Python 2.7
 - scrot
+- mplayer (optional)
 
 Config
 ^^^^^^

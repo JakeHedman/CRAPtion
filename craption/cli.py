@@ -40,7 +40,9 @@ def main(clear_conf=('c', False, 'Rewrite example config and noise'),
         shutil.move(local_image, dest)
     else:
         os.unlink(local_image)
-    utils.play_noise()
+
+    if conf['upload']['noise']:
+        utils.play_noise()
 
 def dispatch():
     main.command()
