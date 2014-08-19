@@ -47,6 +47,7 @@ def install():
     with open(craption.settings.noise_path, 'wb') as fh:
         fh.write(pkg_resources.resource_stream('craption', 'noise.wav').read())
     craption.settings.write_template()
+    exit(0)
 
 def run(args):
     devnull = open(os.devnull, 'wb')
