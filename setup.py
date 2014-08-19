@@ -1,6 +1,4 @@
 from setuptools import setup
-with open('README.md', 'r') as readme:
-    README_TEXT = readme.read()
 
 setup(
     version='1.0.2',
@@ -29,5 +27,5 @@ setup(
         'opster',
         'configobj',
     ],
-    long_description = README_TEXT,
+    long_description = open('README.rst').read(),
 )
