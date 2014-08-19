@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    version='1.0.6',
+    version='1.1',
     name = "craption",
     packages = ['craption'],
     description='Simple screenshot uploader',
@@ -13,7 +13,7 @@ setup(
     url='https://github.com/spillevink/CRAPtion',
     package_dir = {'craption':'craption'},
     package_data = {
-        'cod': ['noise.wav'],
+        'craption': ['noise.wav'],
     },
     entry_points = {
         'console_scripts': [
