@@ -60,6 +60,7 @@ Bind hotkey in OS X
 Todo
 ^^^^
 
+- Error if setting is missing
 - FTP
 - Libnotify/Growl
 - craption dropbox/scp/imgur
