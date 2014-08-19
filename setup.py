@@ -1,5 +1,5 @@
 from setuptools import setup
-with readme as open('README.md', 'r'):
+with open('README.md', 'r') as readme:
     README_TEXT = readme.read()
 
 setup(
