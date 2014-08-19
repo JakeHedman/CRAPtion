@@ -18,7 +18,7 @@ def set_clipboard(data):
 
 def screenshot():
     path = tempfile.mktemp('.png')
-    if sys.platform == 'linux2':
+    if sys.platform == 'linux2' or sys.platform == 'linux':
         run(['scrot', '-s', path])
     else:
         run(['screencapture', '-ix', path])
