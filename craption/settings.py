@@ -76,8 +76,8 @@ def get_conf():
     if os.path.exists(confpath):
         return ConfigObj(confpath)
     else:
-        utils.install()
         print("Wrote example config to {0}".format(confpath))
+        utils.install()
 
 def dropbox_login():
     import dropbox
