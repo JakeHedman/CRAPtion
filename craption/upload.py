@@ -1,9 +1,10 @@
 #coding: utf-8
 
+from craption import settings
 import base64
 import dropbox as dropbox_lib
 import requests
-from craption import settings
+from sfs_upload import sfs_upload
 import subprocess
 
 conf = settings.get_conf()
@@ -16,6 +17,8 @@ def upload(path, filename):
                 return(scp(path, filename, conf['upload']['scp']))
         elif to == "dropbox":
                 return(dropbox(path, filename, conf['upload']['dropbox']))
+        elif to == "sfs":
+                return(sfs(path, filename, conf['upload'].get('sfs_host')))
 
 
 def dropbox(local_path, filename, dropconf):
@@ -56,3 +59,7 @@ def scp(local_file, filename, scpconf):
     p = subprocess.Popen(cmd, stdout=nullw, stdin=nullr, stderr=nullw)
     p.wait()
     return scpconf['url'].replace('{f}', filename)
+
+def sfs(path, filename, host):
+    fh = open(path, 'rb')
+    return sfs_upload.upload(host, fh, filename)

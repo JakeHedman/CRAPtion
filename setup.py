@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    version='1.1.4',
+    version='1.2',
     name = "craption",
     packages = ['craption'],
     description='Simple screenshot uploader',
@@ -26,6 +26,7 @@ setup(
         'requests',
         'opster',
         'configobj',
+        'sfs_upload',
     ],
     long_description = open('README.rst').read(),
 )

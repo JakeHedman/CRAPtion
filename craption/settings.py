@@ -54,6 +54,7 @@ def write_template():
 							'secret': '',
 						},
 				},
+                        'sfs_host': 'localhost:9898',
 		}
 
 	conf['upload'].comments['scp'] = [
@@ -65,7 +66,7 @@ def write_template():
             ]
 	conf['upload']['dropbox'].comments['token'] = ['Set by craption -d']
 	conf['upload'].comments['upload'] = ['Upload screenshot?']
-	conf['upload'].comments['to'] = ['imgur/scp/dropbox etc']
+	conf['upload'].comments['to'] = ['imgur/scp/dropbox/sfs']
 	conf['upload'].comments['noise'] = ['Play a sound (~/.cration_noise.wav) after',
                                             'upload (requires mplayer on linux)',
                                            ]
