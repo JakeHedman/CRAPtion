@@ -24,7 +24,7 @@ def main(clear_conf=('c', False, 'Rewrite example config and noise'),
     conf = settings.get_conf()
     if conf.get('file').as_bool('keep'):
         dest_dir = os.path.expanduser(conf['file']['dir'])
-        if not os.path.exists:
+        if not os.path.exists(dest_dir):
             os.mkdir(dest_dir)
         dest = os.path.join(dest_dir, filename)
         shutil.move(local_image, dest)
