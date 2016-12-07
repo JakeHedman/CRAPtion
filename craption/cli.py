@@ -2,19 +2,9 @@
 
 from craption import settings, upload, utils
 import opster
-import shutil
 import os
+import shutil
 
-#@opster.command(name='dropbox-login', )
-#def dropbox_login():
-#    "Log in to dropbox"
-#    settings.dropbox_login()
-#
-#@opster.command(name="clear-conf")
-#def clear_conf():
-#    "Rewrite noise and example config"
-#    utils.install()
-#
 @opster.command()
 def main(clear_conf=('c', False, 'Rewrite example config and noise'),
          dropbox_login=('d', False, 'Login to dropbox')):
