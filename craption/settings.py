@@ -36,7 +36,7 @@ def write_template():
 
     conf['upload'] = {
         'upload': True,
-            'noise': True,
+        'noise': True,
         'to': 'imgur',
         'imgur': {
             'api-key': 'd4ce1fd7b955cddf8a9a179f3c9bee47',

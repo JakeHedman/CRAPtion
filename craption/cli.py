@@ -22,7 +22,7 @@ def main(clear_conf=('c', False, 'Rewrite example config and noise'),
     print(url)
     utils.set_clipboard(url)
     conf = settings.get_conf()
-    if conf['file']['keep']:
+    if conf.get('file').as_bool('keep'):
         dest_dir = os.path.expanduser(conf['file']['dir'])
         if not os.path.exists:
             os.mkdir(dest_dir)
@@ -31,7 +31,7 @@ def main(clear_conf=('c', False, 'Rewrite example config and noise'),
     else:
         os.unlink(local_image)
 
-    if conf['upload']['noise']:
+    if conf.get('upload').as_bool('noise'):
         utils.play_noise()
 
 def dispatch():

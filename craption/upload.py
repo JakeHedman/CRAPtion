@@ -9,7 +9,7 @@ import subprocess
 
 conf = settings.get_conf()
 def upload(path, filename):
-    if conf['upload']['upload']:
+    if conf.get('upload').as_bool('upload'):
         to = conf['upload']['to'].lower()
         if to == "imgur":
             return(imgur(path, conf['upload']['imgur']['api-key']))
