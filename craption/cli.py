@@ -1,11 +1,9 @@
 #coding: utf-8
 
+from craption import settings, upload, utils
 import opster
 import os
-import settings
 import shutil
-import upload
-import utils
 
 @opster.command()
 def main(clear_conf=('c', False, 'Rewrite example config'),

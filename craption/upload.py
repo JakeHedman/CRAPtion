@@ -1,10 +1,10 @@
 #coding: utf-8
 
+from craption import settings
 from sfs_upload import sfs_upload
 import base64
 import dropbox as dropbox_lib
 import requests
-import settings
 import subprocess
 
 conf = settings.get_conf()

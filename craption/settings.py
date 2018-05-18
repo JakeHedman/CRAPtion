@@ -1,8 +1,8 @@
 #coding: utf-8
 
+from craption import utils
 from configobj import ConfigObj
 import os
-import utils
 import webbrowser
 
 home = os.getenv('USERPROFILE') or os.getenv('HOME')

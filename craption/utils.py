@@ -1,12 +1,12 @@
 #coding: utf-8
 
+from craption import settings
 import datetime
 import os
 import pkg_resources
 import pyperclip
 import random
 import re
-import settings
 import subprocess
 import sys
 import tempfile
