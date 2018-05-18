@@ -1,6 +1,6 @@
 #coding: utf-8
 
-from craption import settings
+import craption.settings
 import datetime
 import os
 import pkg_resources
@@ -24,7 +24,7 @@ def screenshot():
     return path
 
 def get_filename():
-    conf = settings.get_conf()
+    conf = craption.settings.get_conf()
     filename = conf['file']['name']
     now = time.time()
     for match in re.finditer("{r(\d+)}", filename):
@@ -38,7 +38,7 @@ def get_filename():
     return filename + ".png"
 
 def install():
-    settings.write_template()
+    craption.settings.write_template()
     exit(0)
 
 def run(args):

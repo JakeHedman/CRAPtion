@@ -27,7 +27,7 @@ def dropbox(local_path, filename, dropconf):
     return client.share(uploaded['path'])['url']
 
 def imgur(path, api_key):
-    img_data = base64.b64encode(open(path).read())
+    img_data = base64.b64encode(open(path, 'rb').read())
     data = {
         'image': img_data
     }
