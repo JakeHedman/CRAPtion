@@ -1,12 +1,12 @@
 #coding: utf-8
 
-import craption.settings
 import datetime
 import os
 import pkg_resources
 import pyperclip
 import random
 import re
+import settings
 import subprocess
 import sys
 import tempfile
@@ -24,7 +24,7 @@ def screenshot():
     return path
 
 def get_filename():
-    conf = craption.settings.get_conf()
+    conf = settings.get_conf()
     filename = conf['file']['name']
     now = time.time()
     for match in re.finditer("{r(\d+)}", filename):
@@ -37,16 +37,8 @@ def get_filename():
 
     return filename + ".png"
 
-def play_noise():
-    if sys.platform.startswith('linux'):
-        run(["mplayer", craption.settings.noise_path])
-    else:
-        run(["afplay", craption.settings.noise_path])
-
 def install():
-    with open(craption.settings.noise_path, 'wb') as fh:
-        fh.write(pkg_resources.resource_stream('craption', 'noise.wav').read())
-    craption.settings.write_template()
+    settings.write_template()
     exit(0)
 
 def run(args):

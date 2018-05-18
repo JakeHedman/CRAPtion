@@ -1,12 +1,14 @@
 #coding: utf-8
 
-from craption import settings, upload, utils
 import opster
 import os
+import settings
 import shutil
+import upload
+import utils
 
 @opster.command()
-def main(clear_conf=('c', False, 'Rewrite example config and noise'),
+def main(clear_conf=('c', False, 'Rewrite example config'),
          dropbox_login=('d', False, 'Login to dropbox')):
     if dropbox_login:
         settings.dropbox_login()
@@ -31,8 +33,8 @@ def main(clear_conf=('c', False, 'Rewrite example config and noise'),
     else:
         os.unlink(local_image)
 
-    if conf.get('upload').as_bool('noise'):
-        utils.play_noise()
-
 def dispatch():
     main.command()
+
+if __name__ == '__main__':
+    dispatch()

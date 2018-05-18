@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    version='1.3',
+    version='1.4',
     name = "craption",
     packages = ['craption'],
     description='Simple screenshot uploader',
@@ -10,11 +10,8 @@ setup(
     maintainer='Jakob Hedman',
     maintainer_email='jakob@hedman.email',
     license='GNU GPLv3',
-    url='https://github.com/spillevink/CRAPtion',
+    url='https://github.com/jakehedman/CRAPtion',
     package_dir = {'craption':'craption'},
-    package_data = {
-        'craption': ['noise.wav'],
-    },
     entry_points = {
         'console_scripts': [
             'craption = craption.cli:dispatch',

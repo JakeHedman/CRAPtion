@@ -1,13 +1,12 @@
 #coding: utf-8
 
 from configobj import ConfigObj
-from craption import utils
 import os
+import utils
 import webbrowser
 
 home = os.getenv('USERPROFILE') or os.getenv('HOME')
 confpath = "%s/%s" % (home, '.craptionrc')
-noise_path = "%s/%s" % (home, '.craption_noise.wav')
 
 def write_template():
     conf = ConfigObj(
@@ -36,10 +35,9 @@ def write_template():
 
     conf['upload'] = {
         'upload': True,
-        'noise': True,
         'to': 'imgur',
         'imgur': {
-            'api-key': 'd4ce1fd7b955cddf8a9a179f3c9bee47',
+            'api-key': 'ecacc93590c0ad5',
         },
         'scp': {
             'user': 'myuser',
@@ -67,10 +65,6 @@ def write_template():
     conf['upload']['dropbox'].comments['token'] = ['Set by craption -d']
     conf['upload'].comments['upload'] = ['Upload screenshot?']
     conf['upload'].comments['to'] = ['imgur/scp/dropbox/sfs']
-    conf['upload'].comments['noise'] = [
-        'Play a sound (~/.cration_noise.wav) after',
-        'upload (requires mplayer on linux)',
-    ]
 
     conf.write()
 

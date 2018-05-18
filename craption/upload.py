@@ -1,10 +1,10 @@
 #coding: utf-8
 
-from craption import settings
 from sfs_upload import sfs_upload
 import base64
 import dropbox as dropbox_lib
 import requests
+import settings
 import subprocess
 
 conf = settings.get_conf()
@@ -29,13 +29,15 @@ def dropbox(local_path, filename, dropconf):
 def imgur(path, api_key):
     img_data = base64.b64encode(open(path).read())
     data = {
-        'key': api_key,
         'image': img_data
     }
 
-    url = 'http://api.imgur.com/2/upload.json'
-    res = requests.post(url, data=data).json()
-    return res['upload']['links']['original']
+    url = 'https://api.imgur.com/3/upload'
+    headers = {
+        'Authorization': 'Client-ID ' + api_key
+    }
+    res = requests.post(url, data=data, headers=headers).json()
+    return res['data']['link']
 
 def scp(local_file, filename, scpconf):
     cmd = [
